@@ -1,7 +1,6 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
@@ -44,6 +43,8 @@
   grid-template-columns: repeat(4, minmax(25%, auto));
   max-width: 100%;
   width: var(--max-width);
+  margin-top: 80px;
+  width: 80%;
 }
 
 .card {
@@ -52,6 +53,7 @@
   background: rgba(var(--card-rgb), 0);
   border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
+  cursor: pointer;
 }
 
 .card span {
@@ -209,7 +211,7 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   .vercelLogo {
     filter: invert(1);
   }
@@ -226,4 +228,18 @@
   to {
     transform: rotate(0deg);
   }
+}
+
+
+.mainnav ul {
+  display: flex;
+  justify-content: center;
+
+}
+
+.mainnav ul li {
+list-style: none;
+font-weight: bold;
+margin: 20px;
+cursor: pointer;
 }

@@ -4,11 +4,21 @@ import styles from '../styles/page.module.css'
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <Head>
+    <>
+     <Head>
         <title>Sky Blog | Home Page</title>
       </Head>
       
+     <nav className={styles.mainnav}>
+        <ul>
+          <li>Home</li>
+          <li>Blogs</li>
+          <li>About</li>
+          <li>Contact</li>
+        </ul>
+      </nav>
+
+    <main className={styles.main}>
       <h1>SKY BLOG</h1>
 
       <div className={styles.grid}>
@@ -31,5 +41,6 @@ export default function Home() {
         
       </div>
     </main>
+    </>
   )
 }
