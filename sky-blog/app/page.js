@@ -1,24 +1,15 @@
-import Image from 'next/image'
+
 import Head from 'next/head'
 import styles from '../styles/page.module.css'
 
 export default function Home() {
   return (
-    <>
-     <Head>
-        <title>Sky Blog | Home Page</title>
-      </Head>
-      
-     <nav className={styles.mainnav}>
-        <ul>
-          <li>Home</li>
-          <li>Blogs</li>
-          <li>About</li>
-          <li>Contact</li>
-        </ul>
-      </nav>
 
     <main className={styles.main}>
+      <Head>
+        <title>Sky Blog | Home Page</title>
+      </Head>
+
       <h1>SKY BLOG</h1>
 
       <div className={styles.grid}>
@@ -38,9 +29,9 @@ export default function Home() {
           <h2>Deploy <span>-&gt;</span></h2>
           <p>Instantly deploy your Next.js site to a shareable URL with Vercel.</p>
         </div>
-        
+
       </div>
     </main>
-    </>
+
   )
 }

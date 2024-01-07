@@ -230,11 +230,9 @@
   }
 }
 
-
 .mainnav ul {
   display: flex;
   justify-content: center;
-
 }
 
 .mainnav ul li {

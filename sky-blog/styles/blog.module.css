@@ -1,0 +1,19 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+    min-height: 100vh;
+}
+
+.main h1 {
+    margin: 10px;
+}
+
+.blogItem {
+    margin: 10px;
+}
+
+.blogItem h4 {
+    margin: 3px;
+}

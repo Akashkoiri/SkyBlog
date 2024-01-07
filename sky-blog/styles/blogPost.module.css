@@ -1,0 +1,17 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+    min-height: 100vh;
+}
+
+.main h1 {
+    margin: 10px;
+}
+
+.author {
+    width: 80%;
+    text-align: right;
+    margin-top: 25px;
+}
