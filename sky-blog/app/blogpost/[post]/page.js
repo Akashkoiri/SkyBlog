@@ -1,20 +1,13 @@
-"use client"
-
 import styles from "@/styles/blogPost.module.css"
-import { useEffect, useState } from "react"
 
-const blogPost = ({ params }) => {
+export async function getBlogs(post) {
+    const res = await fetch(`http://localhost:3000/api/blogs/${post}`)
+    return res.json()
+}
+
+export default async function blogPost ({ params }) {
     const post = decodeURI(params.post)
-    const [blog, setBlog] = useState({})
-    
-    useEffect(() => {
-        fetch(`/api/blogs/${post}`)
-          .then((res) => res.json())
-          .then((data) => {
-            setBlog(data)
-            console.log(data)
-          })
-      }, [])
+    const blog = await getBlogs(post)
 
     return (
         <div className={styles.container}>
@@ -26,5 +19,3 @@ const blogPost = ({ params }) => {
         </div>
     )
 }
-
-export default blogPost

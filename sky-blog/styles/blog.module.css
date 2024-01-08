@@ -1,19 +1,17 @@
 .main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 3rem;
-    min-height: 100vh;
+    max-width: 80vw;
+    margin: auto;
 }
 
 .main h1 {
     margin: 10px;
+    text-align: center;
 }
 
 .blogItem {
-    margin: 10px;
+    margin: 25px;
 }
 
-.blogItem h4 {
+.blogItem h3 {
     margin: 3px;
 }

@@ -3,12 +3,10 @@ import { promises as fs } from 'fs'
 
 export async function GET() {
     var allBlogs = []
-    const blogs = await fs.readdir(process.cwd() + '/blogData/');
+    const blogs = await fs.readdir(process.cwd() + '/db/blogData/');
     blogs.forEach(async (blog) => {
         const data  = await fs.readFile(process.cwd() + `/blogData/${blog}`, "utf-8")
         allBlogs.push(JSON.parse(data))
-        // console.log(allBlogs)
-        // console.log("========================")
     })
 
 

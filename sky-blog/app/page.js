@@ -1,14 +1,10 @@
-
-import Head from 'next/head'
 import styles from '../styles/page.module.css'
 
-export default function Home() {
+export default async function Home() {
   return (
 
     <main className={styles.main}>
-      <Head>
-        <title>Sky Blog | Home Page</title>
-      </Head>
+    
 
       <h1>SKY BLOG</h1>
 

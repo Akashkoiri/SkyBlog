@@ -1,0 +1,13 @@
+.container {
+    max-width: 80vw;
+    margin: auto;
+}
+
+.container h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.container h2 {
+    margin: 20px 0 5px 0;
+}
