@@ -1,9 +1,33 @@
 "use client"
-import styles from '@/styles/contact.module.css'
+
 import Image from 'next/image'
 import { useState } from 'react'
 import { toast } from 'react-toastify'
+import styles from '@/styles/contact.module.css'
 
+
+function showToast(data) {
+  if (data.success) {
+    toast.success('Success', {
+      position: "top-right",
+      autoClose: 5000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "colored",
+    });
+  }
+  else {
+    toast.error(data.message, {
+      position: "top-right",
+      autoClose: 5000,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "colored",
+    });
+  }
+}
 
 const Contact = () => {
   const [name, setName] = useState('')
@@ -24,34 +48,16 @@ const Contact = () => {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    const res = await fetch("https://3000-akashkoiri-bugbounty-2h0pe889wmw.ws-us107.gitpod.io/api/contact", {
+    
+    const data = await fetch(`${window.location.origin}/api/contact`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ name, email, message })
-    })
-    const data = await res.json()
-    if (data.Success) {
-      toast.success('Success', {
-        position: "top-right",
-        autoClose: 5000,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: "colored",
-      });
-    }
-    else {
-      toast.error('Failed', {
-        position: "top-right",
-        autoClose: 5000,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        theme: "colored",
-        });
-    }
+    }).then(res => res.json())
+    
+    showToast(data)
     setName('')
     setEmail('')
     setMessage('')

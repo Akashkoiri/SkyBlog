@@ -1,14 +1,25 @@
-import { promises as fs } from 'fs'
+import dbConnect from '@/lib/mongo/dbConnect';
+import { Contact } from '@/lib/mongo/models/Contact';
 
 export async function GET() {
-    const data = await fs.readdir(process.cwd() + "/db/contactData/")
-    return Response.json(data)
+    dbConnect()
+    try {
+        const contacts = await Contact.find()
+        return Response.json({ "success": true, "message": contacts })
+    }
+    catch (err) {
+        return Response.json({ "success": false, "message": "Somthing went wrong" })
+    }
 }
 
 export async function POST(req) {
-    const body = await req.json()
-    const len = (await fs.readdir(process.cwd() + "/db/contactData/")).length
-    console.log(len)
-    await fs.writeFile(process.cwd() + `/db/contactData/${len + 1}.json`, JSON.stringify(body))
-    return Response.json({"Success": "Data has been saved"})
+    dbConnect()
+    try {
+        const { name, email, message } = await req.json()
+        let contact = await Contact.create({ name, email, message })
+        return Response.json({ "success": true, "message": contact })
+    }
+    catch (err) {
+        return Response.json({ "success": false, "message": "Somthing went wrong" })
+    }
 }

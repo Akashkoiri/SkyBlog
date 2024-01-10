@@ -1,14 +1,21 @@
-import { promises as fs } from 'fs'
+import dbConnect from '@/lib/mongo/dbConnect';
+import { Blog } from '@/lib/mongo/models/Blog';
 
 
 export async function GET(req, { params }) {
-    const { slug } = params;
+    dbConnect()
+    const { slug } = params
 
     try {
-        var file = await fs.readFile(process.cwd() + `/db/blogData/${slug}.json`, 'utf-8');
-    } catch {
-        return Response.json({ "Error": "No such blog found" })
+        const blog = await Blog.findOne({ slug: slug })
+        if (!blog) {
+            return Response.json({ "success": false, "message": "No such blog found" })
+        }
+        return Response.json({ "success": true, "message": blog })
+    } catch (err) {
+        return Response.json({ "success": false, "message": "Somthing went wrong" })
     }
-
-    return Response.json(JSON.parse(file))
 }
+
+
+

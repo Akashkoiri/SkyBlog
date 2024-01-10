@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "mongoose": "^8.0.3",
     "next": "14.0.4",
+    "nextjs-toploader": "^1.6.4",
     "npm": "^10.2.5",
     "react": "^18",
     "react-dom": "^18",
