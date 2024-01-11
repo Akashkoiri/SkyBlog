@@ -4,10 +4,7 @@ export default async function Home() {
   return (
 
     <main className={styles.main}>
-    
-
       <h1>SKY BLOG</h1>
-
       <div className={styles.grid}>
         <div className={styles.card}>
           <h2>Docs <span>-&gt;</span></h2>

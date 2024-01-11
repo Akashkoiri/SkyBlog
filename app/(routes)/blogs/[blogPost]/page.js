@@ -1,12 +1,12 @@
 import styles from "@/styles/blogPost.module.css"
 
 export async function getBlogs(post) {
-    const res = await fetch(`http://localhost:3000/api/blogs/${post}`, {cache : "no-store"})
+    const res = await fetch(`http://localhost:3000/api/blogs/${post}`, { cache: "no-store" })
     return res.json()
 }
 
 export default async function blogPost({ params }) {
-    const post = decodeURI(params.post)
+    const post = decodeURI(params.blogPost)
     const { success, message } = await getBlogs(post)
     return (
         <div className={styles.container}>

@@ -9,13 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
     "mongoose": "^8.0.3",
     "next": "14.0.4",
     "nextjs-toploader": "^1.6.4",
     "npm": "^10.2.5",
     "react": "^18",
     "react-dom": "^18",
-    "react-toastify": "^9.1.3"
+    "react-hook-form": "^7.49.3",
+    "react-spinners": "^0.13.8",
+    "react-toastify": "^9.1.3",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "eslint": "^8",

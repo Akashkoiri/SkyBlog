@@ -1,17 +1,16 @@
-import dbConnect from '@/lib/mongo/dbConnect';
-import { Blog } from '@/lib/mongo/models/Blog';
+import dbConnect from '@/lib/mongo_db/dbConnect';
+import { Blog } from '@/lib/mongo_db/models/Blog';
 
 
 export async function GET(req, { params }) {
     dbConnect()
-    const { slug } = params
-
+    const { blogPost } = params
     try {
-        const blog = await Blog.findOne({ slug: slug })
-        if (!blog) {
+        const post = await Blog.findOne({ slug: blogPost })
+        if (!post) {
             return Response.json({ "success": false, "message": "No such blog found" })
         }
-        return Response.json({ "success": true, "message": blog })
+        return Response.json({ "success": true, "message": post })
     } catch (err) {
         return Response.json({ "success": false, "message": "Somthing went wrong" })
     }

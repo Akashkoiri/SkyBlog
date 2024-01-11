@@ -19,8 +19,8 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <NextTopLoader />
         <Navbar />
-        {children}
         <ToastContainer />
+        {children}
       </body>
     </html>
   )

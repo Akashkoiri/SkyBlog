@@ -1,5 +1,5 @@
-import dbConnect from '@/lib/mongo/dbConnect';
-import { Contact } from '@/lib/mongo/models/Contact';
+import dbConnect from '@/lib/mongo_db/dbConnect';
+import { Contact } from '@/lib/mongo_db/models/Contact';
 
 export async function GET() {
     dbConnect()

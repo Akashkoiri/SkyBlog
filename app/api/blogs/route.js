@@ -1,5 +1,5 @@
-import dbConnect from '@/lib/mongo/dbConnect';
-import { Blog } from '@/lib/mongo/models/Blog';
+import dbConnect from '@/lib/mongo_db/dbConnect';
+import { Blog } from '@/lib/mongo_db/models/Blog';
 
 export async function GET() {
   dbConnect()

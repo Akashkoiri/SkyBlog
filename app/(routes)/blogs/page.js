@@ -7,17 +7,17 @@ async function getData() {
 }
 
 export default async function Blog() {
-  const {success, message} = await getData()
-  
+  const { success, message } = await getData()
+
   return (
     <div className={styles.container}>
       <main className={styles.main}>
 
         <h1>Blogs</h1>
 
-        {success? message.map((blog) => {
+        {success ? message.map((blog) => {
           return <div className={styles.blogItem} key={blog.slug}>
-            <Link href={`/blogpost/${blog.slug}`}>
+            <Link href={`/blogs/${blog.slug}`}>
               <h3>{blog.title}</h3>
               <p>{blog.description.substr(0, 150)}</p>
             </Link>
