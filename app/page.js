@@ -1,30 +1,29 @@
-import styles from '../styles/page.module.css'
+import styles from '@/styles/page.module.css'
+import Link from 'next/link'
+
+const dynamic = 'force-dynamic'
 
 export default async function Home() {
-  return (
 
+  const { success, message } = await fetch("http://localhost:3000/api/blogs",
+    { cache: 'no-store' }
+  ).then(res => res.json())
+
+  return (
     <main className={styles.main}>
       <h1>SKY BLOG</h1>
-      <div className={styles.grid}>
-        <div className={styles.card}>
-          <h2>Docs <span>-&gt;</span></h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </div>
-        <div className={styles.card}>
-          <h2>Learn <span>-&gt;</span></h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </div>
-        <div className={styles.card}>
-          <h2>Templates <span>-&gt;</span></h2>
-          <p>Explore starter templates for Next.js.</p>
-        </div>
-        <div className={styles.card}>
-          <h2>Deploy <span>-&gt;</span></h2>
-          <p>Instantly deploy your Next.js site to a shareable URL with Vercel.</p>
-        </div>
 
+      <div className={styles.grid}>
+        <h2 className={styles.latest}>Latest blogs</h2>
+        {success ? message.slice(0, 4).map((blog) => {
+          return <div className={styles.card} key={blog.slug}>
+            <Link href={`/blogs/${blog.slug}`}>
+              <h3>{blog.title}</h3>
+              <p>{blog.description.substr(0, 50)}...</p>
+            </Link>
+          </div>
+        }) : <p>Somthing went wrong</p>}
       </div>
     </main>
-
   )
 }

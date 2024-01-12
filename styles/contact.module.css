@@ -107,7 +107,7 @@ textarea.input::-webkit-scrollbar {
     display: none;
 }
 
-.error {
+.error_text {
     color: red;
     text-align: left;
     font-size: 13px;

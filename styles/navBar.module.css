@@ -1,0 +1,11 @@
+.mainnav ul {
+    display: flex;
+    justify-content: center;
+}
+
+.mainnav ul li {
+    list-style: none;
+    font-weight: bold;
+    margin: 20px;
+    cursor: pointer;
+}

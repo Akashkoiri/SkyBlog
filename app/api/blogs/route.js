@@ -1,7 +1,7 @@
 import dbConnect from '@/lib/mongo_db/dbConnect';
 import { Blog } from '@/lib/mongo_db/models/Blog';
 
-export async function GET() {
+export async function GET(req) {
   dbConnect()
   try {
     const blogs = await Blog.find()
