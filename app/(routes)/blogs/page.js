@@ -2,7 +2,7 @@ import styles from "@/styles/blog.module.css"
 import Link from "next/link"
 
 async function getData() {
-  const res = await fetch("http://localhost:3000/api/blogs", { cache: 'no-store' })
+  const res = await fetch("https://skyblog-dr8hgjc22-akashkoiris-projects.vercel.app/api/blogs", { cache: 'no-store' })
   return res.json()
 }
 

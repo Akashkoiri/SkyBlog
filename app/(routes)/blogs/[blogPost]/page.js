@@ -1,7 +1,7 @@
 import styles from "@/styles/blogPost.module.css"
 
 export async function getBlogs(post) {
-    const res = await fetch(`http://localhost:3000/api/blogs/${post}`, { cache: "no-store" })
+    const res = await fetch(`https://skyblog-dr8hgjc22-akashkoiris-projects.vercel.app/api/blogs/${post}`, { cache: "no-store" })
     return res.json()
 }
 
