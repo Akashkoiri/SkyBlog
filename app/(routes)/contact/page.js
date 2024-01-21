@@ -1,8 +1,17 @@
 import ContactForm from './contactForm'
 import Image from 'next/image'
 import styles from '@/styles/contact.module.css'
+import { getServerSession } from 'next-auth';
+import { redirect } from 'next/dist/server/api-utils';
 
-const Contact = () => {
+
+export default async function Contact() {
+  const session = await getServerSession();
+  if (!session) {
+    console.log(session)
+    // redirect("/api/auth/signin");
+  }
+
   return (
     <div className={styles.contact_form}>
       <h1>Contact Us</h1>
@@ -13,8 +22,11 @@ const Contact = () => {
           </div>
           <div className={styles.form_img}>
             <Image src="/contact_us.png"
-              width={284}
-              height={178}
+              width={178}
+              height={284}
+              style={{
+                borderRadius: "5px"
+              }}
               alt="Contact Us"
               priority={true} />
           </div>
@@ -23,5 +35,3 @@ const Contact = () => {
     </div>
   )
 }
-
-export default Contact
