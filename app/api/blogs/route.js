@@ -1,9 +1,8 @@
-import dbConnect from "@/lib/mongo_db/dbConnect";
-import { Blog } from "@/lib/mongo_db/models/Blog";
-
+import dbConnect from '@/lib/mongo_db/dbConnect';
+import { Blog } from '@/lib/mongo_db/models/Blog';
 
 export async function GET(req) {
-  dbConnect();
+  dbConnect()
   try {
     const blogs = await Blog.find();
     return Response.json({ success: true, message: blogs });
@@ -14,9 +13,7 @@ export async function GET(req) {
 
 
 export async function POST(req) {
-  
-
-  dbConnect();
+  dbConnect()
   try {
     const { title, description, slug, author } = await req.json();
     let blog = await Blog.create({ title, description, slug, author });

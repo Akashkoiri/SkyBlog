@@ -3,12 +3,12 @@ import Link from "next/link";
 import {headers} from "next/headers";
 
 export const dynamic = "force-dynamic"
+
 export default async function Home() {
   const { success, message } = await fetch("http://localhost:3000/api/blogs", {
     method: "GET",
     headers: headers(),
   }).then((res) => res.json());
-
 
   return (
     <main className={styles.main}>
