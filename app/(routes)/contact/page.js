@@ -2,14 +2,13 @@ import ContactForm from './contactForm'
 import Image from 'next/image'
 import styles from '@/styles/contact.module.css'
 import { getServerSession } from 'next-auth';
-import { redirect } from 'next/dist/server/api-utils';
+import { redirect } from 'next/navigation';
 
 
 export default async function Contact() {
   const session = await getServerSession();
   if (!session) {
-    console.log(session)
-    // redirect("/api/auth/signin");
+    redirect("/api/auth/signin");
   }
 
   return (
@@ -22,7 +21,7 @@ export default async function Contact() {
           </div>
           <div className={styles.form_img}>
             <Image src="/contact_us.png"
-              width={178}
+              width={330}
               height={284}
               style={{
                 borderRadius: "5px"

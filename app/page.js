@@ -1,14 +1,10 @@
 import styles from "@/styles/page.module.css";
 import Link from "next/link";
-import {headers} from "next/headers";
+import { getBlogs } from "@/lib/actions/blogs/getBlogs";
 
-export const dynamic = "force-dynamic"
 
 export default async function Home() {
-  const { success, message } = await fetch("http://localhost:3000/api/blogs", {
-    method: "GET",
-    headers: headers(),
-  }).then((res) => res.json());
+  const { success, message } = await getBlogs();
 
   return (
     <main className={styles.main}>
@@ -27,7 +23,7 @@ export default async function Home() {
             );
           })
         ) : (
-          <p>Somthing went wrong</p>
+          <p>{message}</p>
         )}
       </div>
     </main>

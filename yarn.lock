@@ -111,10 +111,15 @@
   dependencies:
     glob "7.1.7"
 
-"@next/swc-win32-x64-msvc@14.0.4":
+"@next/swc-linux-x64-gnu@14.0.4":
   version "14.0.4"
-  resolved "https://registry.npmjs.org/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-14.0.4.tgz"
-  integrity sha512-yEh2+R8qDlDCjxVpzOTEpBLQTEFAcP2A8fUFLaWNap9GitYKkKv1//y2S6XY6zsR4rCOPRpU7plYDR+az2n30A==
+  resolved "https://registry.npmjs.org/@next/swc-linux-x64-gnu/-/swc-linux-x64-gnu-14.0.4.tgz"
+  integrity sha512-/s/Pme3VKfZAfISlYVq2hzFS8AcAIOTnoKupc/j4WlvF6GQ0VouS2Q2KEgPuO1eMBwakWPB1aYFIA4VNVh667A==
+
+"@next/swc-linux-x64-musl@14.0.4":
+  version "14.0.4"
+  resolved "https://registry.npmjs.org/@next/swc-linux-x64-musl/-/swc-linux-x64-musl-14.0.4.tgz"
+  integrity sha512-m8z/6Fyal4L9Bnlxde5g2Mfa1Z7dasMQyhEhskDATpqr+Y0mjOBZcXQ7G5U+vgL22cI4T7MfvgtrM2jdopqWaw==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -2514,10 +2519,10 @@ node-gyp@^10.0.0, node-gyp@^10.0.1:
     tar "^6.1.2"
     which "^4.0.0"
 
-nodemailer@^6.6.5, nodemailer@^6.9.8:
-  version "6.9.8"
-  resolved "https://registry.npmjs.org/nodemailer/-/nodemailer-6.9.8.tgz"
-  integrity sha512-cfrYUk16e67Ks051i4CntM9kshRYei1/o/Gi8K1d+R34OIs21xdFnW7Pt7EucmVKA0LKtqUGNcjMZ7ehjl49mQ==
+nodemailer@^6.6.5:
+  version "6.9.9"
+  resolved "https://registry.npmjs.org/nodemailer/-/nodemailer-6.9.9.tgz"
+  integrity sha512-dexTll8zqQoVJEZPwQAKzxxtFn0qTnjdQTchoU6Re9BUUGBJiOy3YMn/0ShTW6J5M0dfQ1NeDeRTTl4oIWgQMA==
 
 nopt@^7.0.0, nopt@^7.2.0:
   version "7.2.0"

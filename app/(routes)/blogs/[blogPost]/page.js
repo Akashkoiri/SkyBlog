@@ -1,20 +1,11 @@
+import { getBlogs } from "@/lib/actions/blogs/getBlogs";
 import styles from "@/styles/blogPost.module.css";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import {headers} from "next/headers"
 
-export async function getBlogs(post) {
-  const res = await fetch(`http://localhost:3000/api/blogs/${post}`, {
-    method: "GET",
-    headers: headers(),
-    cache: "no-store",
-  });
-  return res.json();
-}
 
 export default async function blogPost({ params }) {
   const session = await getServerSession();
-
   if (!session) {
     redirect("/api/auth/signin");
   }

@@ -2,16 +2,8 @@ import styles from "@/styles/blog.module.css";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import { headers } from "next/headers";
+import { getBlogs } from "@/lib/actions/blogs/getBlogs";
 
-async function getData() {
-  const res = await fetch("http://localhost:3000/api/blogs", {
-  method: "GET",
-  headers: headers(),  
-  cache: "no-store",
-  });
-  return res.json();
-}
 
 export default async function Blog() {
   const session = await getServerSession();
@@ -19,13 +11,15 @@ export default async function Blog() {
     redirect("/api/auth/signin");
   }
 
-  const { success, message } = await getData();
+  const { success, message } = await getBlogs();
   
   return (
     <div className={styles.container}>
       <main className={styles.main}>
         <h1>Blogs</h1>
-
+        {/* Todo: Add a button to create a new blog */}
+        
+        {/* end */}
         {success ? (
           message.map((blog) => {
             return (
@@ -38,7 +32,7 @@ export default async function Blog() {
             );
           })
         ) : (
-          <p>Somthing went wrong</p>
+          <p>{message}</p>
         )}
       </main>
     </div>
